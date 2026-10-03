@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dost Wala Prank 😂</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;overflow:hidden;font-family:Arial,sans-serif;color:#fff;
+background:radial-gradient(circle at 15% 15%,#ff75ab55 0 70px,transparent 71px),
+radial-gradient(circle at 85% 80%,#65eaff55 0 100px,transparent 101px),
+linear-gradient(135deg,#17104a,#49206f,#a52f70)}
+.screen{display:none;min-height:100vh;padding:20px;align-items:center;justify-content:center;position:relative}
+.active{display:flex}
+.card{width:min(430px,94vw);padding:28px 20px;text-align:center;border-radius:28px;
+background:#ffffff20;border:1px solid #ffffff40;backdrop-filter:blur(14px);
+box-shadow:0 20px 60px #0006;z-index:5}
+h1,h2{margin:8px 0 12px}h1{font-size:32px}h2{font-size:28px}
+p{line-height:1.5}.emoji{font-size:52px}
+.badge{display:inline-block;padding:6px 12px;border-radius:99px;background:#ffffff20;font-size:12px}
+.buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+button{border:0;border-radius:999px;padding:13px 20px;font-size:16px;font-weight:700;
+cursor:pointer;box-shadow:0 8px 20px #0004}
+.yes{background:#ffd166;color:#431b4d}.no{background:#ff8fab;color:#431b4d}
+.moving{z-index:30;transition:left .22s,top .22s}
+.message{margin-top:18px;min-height:48px;padding:12px 14px;border-radius:16px;
+background:#0003;font-weight:700;font-size:17px;display:flex;align-items:center;justify-content:center}
+.list{display:flex;flex-direction:column;gap:8px;margin-top:12px;max-height:190px;overflow:auto;text-align:left}
+.list div{padding:10px 12px;border-radius:12px;background:#ffffff18;font-size:15px}
+.qr{width:230px;height:230px;padding:8px;background:white;border-radius:18px;display:block;margin:15px auto;max-width:75vw}
+.upi{font-size:12px;word-break:break-all}
+.float{position:fixed;pointer-events:none;z-index:1;font-size:24px;animation:fall 8s linear infinite}
+@keyframes fall{from{transform:translateY(-10vh)}to{transform:translateY(110vh) rotate(360deg)}}
+</style>
+</head>
+<body>
+
+<section id="q1" class="screen active"><div class="card">
+<div class="emoji">😎🤝😂</div><span class="badge">FRIENDSHIP CHECK</span>
+<h1>Kya haal chaal dost?</h1>
+<p>Seedha jawab dena... CCTV laga hai 👀😂</p>
+<div class="buttons">
+<button id="thik" class="yes moving" onclick="thik()">Thik Thak 😌</button>
+<button class="no" onclick="next('q2')">Bekar 😭</button>
+</div>
+<div id="m1" class="message">Sach bol dost... 😏</div><div id="l1" class="list"></div>
+</div></section>
+
+<section id="q2" class="screen"><div class="card">
+<div class="emoji">🫠😂</div><span class="badge">LIFE STATUS</span>
+<h2>Kaisa chal raha hai zindagi?</h2>
+<p>Ab asli report do. Jhooth pakda jayega 🕵️</p>
+<div class="buttons">
+<button id="bekar" class="no moving" onclick="life()">Bekar 😭</button>
+<button class="yes" onclick="next('q3')">Bahut Bekar 💀</button>
+</div>
+<div id="m2" class="message">Choose wisely... 😂</div><div id="l2" class="list"></div>
+</div></section>
+
+<section id="q3" class="screen"><div class="card">
+<div class="emoji">🥟😋💸</div><span class="badge">MOST IMPORTANT QUESTION</span>
+<h2>Momos party kab de raha hai dost?</h2>
+<p>Yahi asli exam hai 😂</p>
+<div class="buttons">
+<button id="marketBtn" class="yes moving" onclick="marketPrank()">Abhi aao market 🥟</button>
+<button class="no" onclick="next('upi');burst('💸')">100 taka bhej raha hu 💸</button>
+</div>
+<div id="m3" class="message">Market jaane ki jaldi hai? Pakdo pehle 😂</div>
+<div id="l3" class="list"></div>
+</div></section>
+
+<section id="upi" class="screen"><div class="card">
+<div class="emoji">💸🙏😂</div><h1>Paisa dalo dost 💰</h1>
+<p><b>₹100</b> ka UPI QR ready hai.</p>
+<img class="qr" src="https://quickchart.io/qr?size=300&margin=2&text=upi%3A%2F%2Fpay%3Fpa%3D856134913796164%40axl%26pn%3DDost%26am%3D100%26cu%3DINR" alt="UPI QR">
+<p class="upi">UPI ID: 856134913796164@axl</p>
+<p><b>Bhagwan tumhara bhala kare 🙏😂</b></p>
+<p style="font-size:12px;opacity:.8">Payment app me amount aur UPI ID check karke hi payment karna.</p>
+</div></section>
+
+<script>
+const a=[
+"Thik-thak? Itna confidence kahan se aaya? 😂",
+"Dost, report suspicious lag rahi hai... 👀",
+"Thik-thak bolke bach nahi paoge 😭",
+"Acha! Ab button bhi tumse bhaag raha hai 😂",
+"5 attempts complete! Ab sach bolne ka time hai 😎"
+];
+const b=[
+"Bekar? Ye toh expected tha 😂",
+"Zindagi ne uninstall kar diya kya? 🫠",
+"Ek chai aur do momos se sab thik ho sakta hai 🥟",
+"Problem badi hai, solution: dosti + momos 😂",
+"5 reports complete. Ab final sawaal ke liye ready ho 💀"
+];
+const c=[
+"Pehle pakad ke dikha dost 😂",
+"Market jaana itna easy nahi hai 😭",
+"Arre! Phir se pakadne aa gaya? 🤣",
+"Button tumse zyada tez nikla 😎",
+"Bas dost, momos ke liye itni mehnat? 😂",
+"Main nahi ja raha market! 😂🥟"
+];
+let x=0,y=0,z=0;
+
+function next(id){
+ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+}
+
+function move(id){
+ const b=document.getElementById(id);
+ b.style.position='fixed';
+ const m=16,w=b.offsetWidth,h=b.offsetHeight;
+ const maxX=Math.max(m,innerWidth-w-m);
+ const maxY=Math.max(m,innerHeight-h-m);
+ b.style.left=Math.round(m+Math.random()*(maxX-m))+'px';
+ b.style.top=Math.round(m+Math.random()*(maxY-m))+'px';
+}
+
+function add(id,text){
+ const d=document.createElement('div');
+ d.textContent='😂 '+text;
+ document.getElementById(id).appendChild(d);
+}
+
+function thik(){
+ x++;
+ add('l1',a[Math.min(x-1,4)]);
+ document.getElementById('m1').textContent='Attempt #'+x+' 😭';
+ move('thik');
+}
+
+function life(){
+ y++;
+ add('l2',b[Math.min(y-1,4)]);
+ document.getElementById('m2').textContent='Life report #'+y+' 😂';
+ move('bekar');
+}
+
+function marketPrank(){
+ z++;
+ add('l3',c[Math.min(z-1,c.length-1)]);
+ document.getElementById('m3').textContent='Market attempt #'+z+' 😂';
+ move('marketBtn');
+}
+
+function burst(e){
+ for(let i=0;i<16;i++){
+  let s=document.createElement('span');
+  s.textContent=e;s.className='float';
+  s.style.left=Math.random()*100+'vw';
+  s.style.animationDelay=(-Math.random()*6)+'s';
+  document.body.appendChild(s);
+  setTimeout(()=>s.remove(),9000);
+ }
+}
+</script>
+</body>
+</html>
